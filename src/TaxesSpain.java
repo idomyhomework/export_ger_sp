@@ -34,14 +34,13 @@ public class TaxesSpain implements Serializable {
 
     @Override
     public String toString() {
-        return "\nIVTM (impuesto de circulación): " + this.IVTM + "\nITV (revisión) " + this.ITV +
+        return "(ESPAÑA)\nIVTM (impuesto de circulación): " + this.IVTM + "\nITV (revisión) " + this.ITV +
                 "\nTráfico (DGT): " + this.DGT + "\nLas placas españolas: " + this.placas + "\nIEDMT: " + this.IEDMT;
     }
 
     public Double taxesAmount() {
         double total = 0;
-        total = IVTM + ITV + DGT + placas + IEDMT;
-        System.out.println("El total de los impuestos en España: ");
+        total = this.IVTM + this.ITV + this.DGT + this.placas + this.IEDMT;
         return total;
     }
 

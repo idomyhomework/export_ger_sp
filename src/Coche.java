@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+import javax.swing.JOptionPane;
+
 public class Coche implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -8,8 +10,8 @@ public class Coche implements Serializable{
     private Integer precioSpain;
     private Integer precioGermany;
     private Double contaminación;
-    private TaxesGermany taxesGermany;
-    private TaxesSpain taxesSpain;
+    public TaxesGermany taxesGermany;
+    public TaxesSpain taxesSpain;
     private String urlGermany = "";
     private String urlSpain = "";
 
@@ -27,17 +29,15 @@ public class Coche implements Serializable{
         this.urlSpain = urlSpain;
     }
 
-    public Double contarLaRentabilidad() {
-        double rentabilidad = precioSpain - (precioGermany + taxesGermany.taxesAmount() - taxesSpain.taxesAmount());
+    public void contarLaRentabilidad() {
+        double rentabilidad = this.precioSpain - (this.precioGermany + this.taxesGermany.taxesAmount() + this.taxesSpain.taxesAmount());
 
         if (rentabilidad > 0) {
-            System.out.println("Vender este " + this.marca + " " + this.modelo + "sale rentable.");
-            System.out.println("La rentabilidad es de ");
-            return rentabilidad;
+            JOptionPane.showMessageDialog(null, "Vender este " + this.marca + " " + this.modelo + " sale rentable." +
+            "La rentabilidad es de " + rentabilidad);
         } else {
-            System.out.println("Vender este " + this.marca + " " + this.modelo + "NO sale rentable.");
-            System.out.println("Pierdes");
-            return rentabilidad;
+            JOptionPane.showMessageDialog(null, "Vender este " + this.marca + " " + this.modelo + " NO sale rentable." +
+            "pierdes " + Math.abs(rentabilidad));
         }
     }
 

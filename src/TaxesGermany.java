@@ -21,14 +21,13 @@ public class TaxesGermany implements Serializable {
 
     @Override
     public String toString() {
-        return "\nTasa de matrícula: " + this.tasaMatricula + "\nPlacas físicas: " + this.placasFisicas +
+        return "(ALEMANIA)\nTasa de matrícula: " + this.tasaMatricula + "\nPlacas físicas: " + this.placasFisicas +
                 "\nSeguro temporal: " + this.seguroTemporal + "\nITV aleman: " + this.TuV;
     }
 
     public Integer taxesAmount() {
         int total = 0;
-        total = tasaMatricula + placasFisicas + seguroTemporal + TuV;
-        System.out.println("El total de los impuestos en Alemania: ");
+        total = this.tasaMatricula + this.placasFisicas + this.seguroTemporal + this.TuV;
         return total;
     }
 
